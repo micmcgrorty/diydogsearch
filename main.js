@@ -1,12 +1,18 @@
-let api = 'https://api.punkapi.com/v2/beers/random';
-let submit = document.getElementById('submit');
+let api = 'https://api.punkapi.com/v2/beers';
+let query = document.getElementById('query');
+let random = document.getElementById('random');
+let search = document.getElementById('search');
 let beerdetails = document.getElementById('beerdetails');
 
-submit.addEventListener('click', function(){
-    request();
+random.addEventListener('click', function(){
+    request(api + '/random');
 })
 
-function request() {
+search.addEventListener('click', function(){
+    request(api + '?beer_name=' + query.value);
+})
+
+function request(api) {
     fetch(api)
     .then(function(response) {
         return response.json();
