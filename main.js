@@ -1,3 +1,5 @@
+//DIY Dog Search tool using Punk API - Michael McGrorty 6/11/18
+
 let api = 'https://api.punkapi.com/v2/beers';
 let query = document.getElementById('query');
 let random = document.getElementById('random');
