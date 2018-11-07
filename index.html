@@ -16,7 +16,22 @@
         <h2>Get a random Brewdog beer</h2>
     </div>
     <div>
-        <input type="text" id="query"/>
+        <input type="text" placeholder="Search term" id="query"/>
+        <select id="searchtype">
+            <option value="?abv_gt=">ABV Greater Than</option>
+            <option value="?abv_lt=">ABV Less Than</option>
+            <option value="?ibu_gt=">IBU Greater Than</option>
+            <option value="?ibu_lt=">IBU Less Than</option>
+            <option value="?ebc_gt=">EBC Greater Than</option>
+            <option value="?ebc_lt=">EBC Less Than</option>
+            <option value="?beer_name=">Beer Name</option>
+            <option value="?yeast=">Yeast</option>
+            <option value="?brewed-before=">Brewed Before (MM-YYYY)</option>
+            <option value="?brewed-after=">Brewed After (MM-YYYY)</option>
+            <option value="?malt=">Malt</option>
+            <option value="?hops=">Hops</option>
+            <option value="?food=">Food</option>
+        </select>
     </div>
     <div>
         <button id="random">RANDOM</button>
