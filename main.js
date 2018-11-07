@@ -23,7 +23,7 @@ function request(api) {
         return response.json();
     })
     .then(function(beers) {
-        if (beers.statusCode != 400) {
+        if (beers.length) {
             beers.forEach(function(beer){
                 let name = beer.name;
                 let img = beer.image_url;

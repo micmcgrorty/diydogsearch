@@ -12,3 +12,19 @@ img {
     width: 75px;
     height: 250px;
 }
+
+button {
+    margin: 5px;
+    border: none;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1.25em;
+}
+
+select {
+    font-family: inherit;
+}
+
+input {
+    font-family: inherit;
+}
