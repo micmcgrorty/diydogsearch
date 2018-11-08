@@ -23,6 +23,7 @@ function request(api) {
         return response.json();
     })
     .then(function(beers) {
+        console.log(beers);
         if (beers.length) {
             beers.forEach(function(beer){
                 let name = beer.name;

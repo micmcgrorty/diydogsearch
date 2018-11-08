@@ -23,8 +23,14 @@ button {
 
 select {
     font-family: inherit;
+    padding: 5px;
 }
 
 input {
     font-family: inherit;
+    padding: 5px;
+}
+
+input:focus {
+    border: 2px solid blue;
 }
