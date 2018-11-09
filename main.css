@@ -8,9 +8,11 @@ body {
 }
 
 img {
-    border: 1px solid #ddd;
-    width: 75px;
-    height: 250px;
+    width: 5.25%;
+    height: 52.5%;
+    animation-duration: 4s;
+    animation-name: spinner;
+    animation-iteration-count: infinite;
 }
 
 button {
@@ -34,3 +36,16 @@ input {
 input:focus {
     border: 2px solid blue;
 }
+
+@keyframes spinner {
+    from {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  }
