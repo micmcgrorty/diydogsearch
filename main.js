@@ -72,8 +72,7 @@ function addRow() {
     var insertHere = document.getElementById('form');
     insertHere.parentNode.insertBefore(newRow, insertHere);
 
-    for (let i = 1; i <= counter; i++) {
-        console.log(i);
+    for (let i = counter; i <= counter; i++) {
         plusButtons[i] = document.getElementById('plus' + [i]);
         plusButtons[i].addEventListener('click', function() {
             addRow();
