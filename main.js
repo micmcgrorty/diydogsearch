@@ -1,20 +1,37 @@
 //DIY Dog Search tool using Punk API - Michael McGrorty 6/11/18
 
 let api = 'https://api.punkapi.com/v2/beers';
-let query = document.getElementById('query');
-let random = document.getElementById('random');
-let search = document.getElementById('search');
-let searchtype = document.getElementById('searchtype');
+let randomButton = document.getElementById('random');
+let searchButton = document.getElementById('search');
 let beerdetails = document.getElementById('beerdetails');
+let form = document.getElementById('form');
+let counter = 0;
+let requeststring = '';
+let plusButtons = [];
+let searchType = '';
+let searchTerm = '';
 
-random.addEventListener('click', function(){
+randomButton.addEventListener('click', function(){
+    requeststring = api + '/random';
+    console.log(requeststring);
     beerdetails.innerHTML = '';
-    request(api + '/random');
+    request(requeststring);
 })
 
-search.addEventListener('click', function(){
+searchButton.addEventListener('click', function(){
+    requeststring = api;
+    for (let i = 1; i <= counter; i++) {
+        if (i == 1)
+            requeststring += '?';
+        else 
+            requeststring += '&';
+        searchType = document.getElementById('searchtype' + [i]);
+        searchTerm = document.getElementById('query' + [i]);
+        requeststring += searchType.value += searchTerm.value; 
+    }
+    console.log(requeststring);
     beerdetails.innerHTML = '';
-    request(api + searchtype.value + query.value);
+    request(requeststring);
 })
 
 function request(api) {
@@ -39,3 +56,29 @@ function request(api) {
         }
     });
 }
+
+function addRow() {
+    counter++;
+
+    let newRow = document.getElementById('formrow').cloneNode(true);
+    newRow.id = '';
+    newRow.style.display = 'block';
+    let aNewRow = newRow.childNodes;
+    for (var i=0; i < aNewRow.length ;i++) {
+		var id = aNewRow[i].id
+		if (id)
+			aNewRow[i].id = id + counter;
+    }
+    var insertHere = document.getElementById('form');
+    insertHere.parentNode.insertBefore(newRow, insertHere);
+
+    for (let i = 1; i <= counter; i++) {
+        console.log(i);
+        plusButtons[i] = document.getElementById('plus' + [i]);
+        plusButtons[i].addEventListener('click', function() {
+            addRow();
+        })
+    }
+}
+
+window.onload = addRow;
