@@ -49,3 +49,12 @@ input:focus {
       transform: rotateY(-360deg);
     }
   }
+
+  li {
+    list-style-type: none;
+    margin: 5px;
+  }
+
+  .hidden {
+      display: none;
+  }

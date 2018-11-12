@@ -40,17 +40,18 @@ function request(api) {
         return response.json();
     })
     .then(function(beers) {
-        console.log(beers);
         if (beers.length) {
+            beerdetails.innerHTML += '<ul>';
             beers.forEach(function(beer){
                 let name = beer.name;
                 let img = beer.image_url;
                 let tagline = beer.tagline;
     
-                beerdetails.innerHTML += '<h4>' + name + '</h4>';
-                beerdetails.innerHTML += '<h5>' + tagline + '</h5>';
-                beerdetails.innerHTML += '<img src="' + img + '">'; 
+                beerdetails.innerHTML += '<li><p>' + name + '</p></li>';
+                //beerdetails.innerHTML += '<p class="hidden">' + tagline + '</p>';
+                //beerdetails.innerHTML += '<img class="hidden" src="' + img + '">'  + '</div></li>'; 
             })
+            beerdetails.innerHTML += '</ul>';
         } else {
             beerdetails.innerHTML = '<h4>No beers found</h4>';
         }
