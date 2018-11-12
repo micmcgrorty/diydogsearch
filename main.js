@@ -10,6 +10,7 @@ let requeststring = '';
 let plusButtons = [];
 let searchType = '';
 let searchTerm = '';
+let things = document.getElementsByClassName('beers');
 
 randomButton.addEventListener('click', function(){
     requeststring = api + '/random';
@@ -41,17 +42,23 @@ function request(api) {
     })
     .then(function(beers) {
         if (beers.length) {
-            beerdetails.innerHTML += '<ul>';
+            //beerdetails.innerHTML += '<ul>';
             beers.forEach(function(beer){
                 let name = beer.name;
                 let img = beer.image_url;
                 let tagline = beer.tagline;
     
-                beerdetails.innerHTML += '<li><p>' + name + '</p></li>';
-                //beerdetails.innerHTML += '<p class="hidden">' + tagline + '</p>';
-                //beerdetails.innerHTML += '<img class="hidden" src="' + img + '">'  + '</div></li>'; 
+                beerdetails.innerHTML += '<div class="beer"><p><strong>' + name + '</strong></p><p hidden>' + tagline + '</p><img hidden src="' + img + '">'  + '</div>';
             })
-            beerdetails.innerHTML += '</ul>';
+            //beerdetails.innerHTML += '</ul>';
+            beerlist = document.getElementsByClassName('beer');
+                if (beerlist.length) {
+                    for (let i = 0; i < beerlist.length; i++) {
+                        beerlist[i].addEventListener('click', function() {
+                            showStuff(beerlist[i]);
+                        });
+                    }
+                }
         } else {
             beerdetails.innerHTML = '<h4>No beers found</h4>';
         }
@@ -82,3 +89,13 @@ function addRow() {
 }
 
 window.onload = addRow;
+
+function showStuff(elem) {
+	for (let i = 1; i < elem.childNodes.length; i++) {
+		if (elem.childNodes[i].hidden == true){
+        	elem.childNodes[i].hidden = false;
+        } else if (elem.childNodes[i].hidden == false) {
+            elem.childNodes[i].hidden = true;
+        }
+	}
+}

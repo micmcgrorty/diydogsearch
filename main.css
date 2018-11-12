@@ -8,8 +8,8 @@ body {
 }
 
 img {
-    width: 62.5px;
-    height: 250px;
+    width: 31px;
+    height: 125px;
     animation-duration: 4s;
     animation-name: spinner;
     animation-iteration-count: infinite;
