@@ -47,8 +47,12 @@ function request(api) {
                 let name = beer.name;
                 let img = beer.image_url;
                 let tagline = beer.tagline;
+                let desc = beer.description;
+                let abv = beer.abv;
+                let ibu = beer.ibu;
+                console.log(beer);
     
-                beerdetails.innerHTML += '<div class="beer"><p><strong>' + name + '</strong></p><p hidden>' + tagline + '</p><img hidden src="' + img + '">'  + '</div>';
+                beerdetails.innerHTML += '<div class="beer wrapper"><div class="one"><strong>' + name + '</strong></div><div class="two" hidden>' + tagline + '</div><div class="three" hidden><img src="' + img + '"></div><div class="four" hidden>' + desc + '</div>' + '<div class="five" hidden>ABV: <strong>' + abv + '</strong>%</div><div class="six" hidden>IBU: <strong>' + ibu + '</strong></div>' + '</div>';
             })
             //beerdetails.innerHTML += '</ul>';
             beerlist = document.getElementsByClassName('beer');
