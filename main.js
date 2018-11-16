@@ -53,7 +53,7 @@ function request(api) {
                 let ebc = beer.ebc;
                 console.log(beer);
     
-                beerdetails.innerHTML += '<div class="beer beergrid"><div class="one"><strong>' + name + '</strong></div><div class="two" hidden>' + tagline + '</div><div class="three" hidden><img src="' + img + '"></div><div class="four" hidden>' + desc + '</div>' + '<div class="five" hidden>ABV: <strong>' + abv + '</strong>%</div><div class="six" hidden>IBU: <strong>' + ibu + '</strong></div><div class="seven" hidden>EBC: <strong>' + ebc + '</strong></div>' + '</div>';
+                beerdetails.innerHTML = '<div class="beer beergrid"><div class="one"><strong>' + name + '</strong></div><div class="two" hidden>' + tagline + '</div><div class="three" hidden><img src="' + img + '"></div><div class="four" hidden>' + desc + '</div>' + '<div class="five" hidden>ABV: <strong>' + abv + '</strong>%</div><div class="six" hidden>IBU: <strong>' + ibu + '</strong></div><div class="seven" hidden>EBC: <strong>' + ebc + '</strong></div>' + '</div>';
             })
             //beerdetails.innerHTML += '</ul>';
             beerlist = document.getElementsByClassName('beer');
