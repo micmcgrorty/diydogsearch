@@ -43,6 +43,11 @@ function request(api) {
     .then(function(beers) {
         if (beers.length) {
             //beerdetails.innerHTML += '<ul>';
+            if (beers.length == 1) {
+                beerdetails.innerHTML += '<h4>' + beers.length + ' beer found!</h4>';
+            } else if (beers.length > 1) {
+                beerdetails.innerHTML += '<h4>' + beers.length + ' beers found!</h4>';
+            }
             beers.forEach(function(beer){
                 let name = beer.name;
                 let img = beer.image_url;
@@ -53,7 +58,7 @@ function request(api) {
                 let ebc = beer.ebc;
                 console.log(beer);
     
-                beerdetails.innerHTML = '<div class="beer beergrid"><div class="one"><strong>' + name + '</strong></div><div class="two" hidden>' + tagline + '</div><div class="three" hidden><img src="' + img + '"></div><div class="four" hidden>' + desc + '</div>' + '<div class="five" hidden>ABV: <strong>' + abv + '</strong>%</div><div class="six" hidden>IBU: <strong>' + ibu + '</strong></div><div class="seven" hidden>EBC: <strong>' + ebc + '</strong></div>' + '</div>';
+                beerdetails.innerHTML += '<div class="beer beergrid"><div class="one"><strong>' + name + '</strong></div><div class="two" hidden>' + tagline + '</div><div class="three" hidden><img src="' + img + '"></div><div class="four" hidden>' + desc + '</div>' + '<div class="five" hidden>ABV: <strong>' + abv + '</strong>%</div><div class="six" hidden>IBU: <strong>' + ibu + '</strong></div><div class="seven" hidden>EBC: <strong>' + ebc + '</strong></div>' + '</div>';
             })
             //beerdetails.innerHTML += '</ul>';
             beerlist = document.getElementsByClassName('beer');
