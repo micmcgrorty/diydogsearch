@@ -50,16 +50,11 @@ input:focus {
     }
   }
 
-li {
-    list-style-type: none;
-    margin: 10px;
-}
-
 .beergrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
-    grid-auto-rows: min-content;
+    grid-template-rows: repeat(5, 1fr);
     margin: 20px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 10%;
@@ -92,4 +87,16 @@ li {
 .seven {
     grid-column: 4;
     grid-row: 4;
+}
+.eight {
+    grid-column: 2;
+    grid-row: 5;
+}
+.nine {
+    grid-column: 3;
+    grid-row: 5;
+}
+.ten {
+    grid-column: 4;
+    grid-row: 5;
 }

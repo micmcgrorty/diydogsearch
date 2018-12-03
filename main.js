@@ -51,25 +51,16 @@ if (sUsrAg.indexOf("Trident") > -1) {
         })
         .then(function(beers) {
             if (beers.length) {
-                //beerdetails.innerHTML += '<ul>';
                 if (beers.length == 1) {
-                    beerdetails.innerHTML += '<h4>' + beers.length + ' beer found!</h4>';
+                    beerdetails.innerHTML += `<h4>${beers.length} beer found!</h4>`;
                 } else if (beers.length > 1) {
-                    beerdetails.innerHTML += '<h4>' + beers.length + ' beers found!</h4>';
+                    beerdetails.innerHTML += `<h4>${beers.length} beers found!</h4>`;
                 }
                 beers.forEach(function(beer){
-                    let name = beer.name;
-                    let img = beer.image_url;
-                    let tagline = beer.tagline;
-                    let desc = beer.description;
-                    let abv = beer.abv;
-                    let ibu = beer.ibu;
-                    let ebc = beer.ebc;
                     console.log(beer);
         
-                    beerdetails.innerHTML += '<div class="beer beergrid"><div class="one"><strong>' + name + '</strong></div><div class="two" hidden>' + tagline + '</div><div class="three" hidden><img src="' + img + '"></div><div class="four" hidden>' + desc + '</div>' + '<div class="five" hidden>ABV: <strong>' + abv + '</strong>%</div><div class="six" hidden>IBU: <strong>' + ibu + '</strong></div><div class="seven" hidden>EBC: <strong>' + ebc + '</strong></div>' + '</div>';
-                })
-                //beerdetails.innerHTML += '</ul>';
+                    beerdetails.innerHTML += `<div class="beer beergrid"><div class="one"><strong>${beer.name}</strong></div><div class="two" hidden>${beer.tagline}</div><div class="three" hidden><img src="${beer.image_url}"></div><div class="four" hidden>${beer.description}</div><div class="five" hidden>ABV: <strong>${beer.abv}</strong>%</div><div class="six" hidden>IBU: <strong>${beer.ibu}</strong></div><div class="seven" hidden>EBC: <strong>${beer.ebc}</strong></div><div class="eight" hidden>OG: <strong>${beer.target_og}</strong></div><div class="nine" hidden>FG: <strong>${beer.target_fg}</strong></div><div class="ten" hidden>pH: <strong>${beer.ph}</strong></div></div>`;
+                });
                 beerlist = document.getElementsByClassName('beer');
                     if (beerlist.length) {
                         for (let i = 0; i < beerlist.length; i++) {
